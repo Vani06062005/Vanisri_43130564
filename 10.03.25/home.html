@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<div>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+    </div>
+    <script>
+        let htmlData=""
+        for(i=0;i<100;i++)
+        htmlData=htmlData+"<p> Hello js</p>\n"
+        console.log(htmlData)
+        document.getElementById("test").innerHTML=htmlData
+    </script>
+</body>
+</html>
