@@ -1,0 +1,301 @@
+// overiding
+
+package nov21;
+
+	class Vehicle {
+	    void start() {
+	        System.out.println("Vehicle is starting...");
+	    }
+	}
+
+	class Car extends Vehicle {
+	    void start() {
+	        System.out.println("Car starts with a key");
+	    }
+	}
+
+	class Bike extends Vehicle {
+	    void start() {
+	        System.out.println("Bike starts with self-start");
+	    }
+	}
+
+	public class Overiding {
+	    public static void main (String[] args) {
+	        Vehicle v1 = new Car();
+	        Vehicle v2 = new Bike();
+
+	        v1.start();  
+	        v2.start();  
+	    }
+	}
+
+//overloading
+
+	
+package nov21;
+
+public class Overloading {
+
+    
+    double area(double radius) {
+        return 3.14 * radius * radius;
+    }
+
+    
+    double area(double length, double width) {
+        return length * width;
+    }
+
+    
+    double area(double base, int height) {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+        Overloading obj = new Overloading();
+
+        System.out.println("Area of Circle: " + obj.area(5.0));
+        System.out.println("Area of Rectangle: " + obj.area(4.0, 6.0));
+        System.out.println("Area of Triangle: " + obj.area(8.0, 5));
+    }
+}
+//constructor
+
+package nov21;
+
+class Employee {
+    String name;
+    int salary;
+
+    
+    Employee(String n, int s) {
+        name = n;
+        salary = s;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+public class Constructor {
+    public static void main(String[] args) {
+        Employee e = new Employee("Vani", 300000);
+        e.display();
+    }
+}
+
+//abstract
+
+package nov21;
+
+	
+	abstract class Animal {
+	
+	    abstract void sound();
+
+	    
+	    void sleep() {
+	        System.out.println("Animal is sleeping...");
+	    }
+	}
+
+	
+	class Dog extends Animal {
+	   
+	    void sound() {
+	        System.out.println("Dog barks: Woof Woof");
+	    }
+	}
+
+	public class Abstract{
+	    public static void main(String[] args) {
+	        Animal obj = new Dog();  
+	        obj.sound();              
+	        obj.sleep();              
+	    }
+	}
+
+//exception
+
+package nov21;
+
+public class Exception {
+
+	    public static void main(String[] args) {
+
+	        try {
+	            int a = 10;
+	            int b = 0;
+	            int c = a / b;  
+	            System.out.println(c);
+	        }
+	        catch (ArithmeticException e) {
+	            System.out.println("Error: Cannot divide by zero!");
+	        }
+
+	        System.out.println("Program continues...");
+	    }
+	}
+
+//encapsulation
+
+package nov21;
+
+class BankAccount {
+    private String name;
+    private double balance;
+
+  
+    public BankAccount(String n, double b) {
+        name = n;
+        balance = b;
+    }
+
+    
+    public String getName() {
+        return name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    
+    public void deposit(double amount) {
+        balance = balance + amount;
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance = balance - amount;
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+}
+
+public class Encapsulation {
+    public static void main(String[] args) {
+
+        BankAccount acc = new BankAccount("Vanisri", 5000);
+
+        System.out.println("Name: " + acc.getName());
+        System.out.println("Balance: " + acc.getBalance());
+
+        acc.deposit(2000);
+        System.out.println("After deposit: " + acc.getBalance());
+
+        acc.withdraw(3000);
+        System.out.println("After withdrawal: " + acc.getBalance());
+    }
+}
+
+//array
+
+package nov21;
+
+public class Array {
+    public static void main(String[] args) {
+        try {
+            int arr[] = {10, 20, 30};
+            System.out.println(arr[5]);  
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+    }
+}
+
+//arithmetic
+
+package nov21;
+
+
+	public class Arithmetic {
+	    public static void main(String[] args) {
+	        try {
+	            int a = 10 / 0;
+	        } 
+	        catch (ArithmeticException e) {
+	            System.out.println("ArithmeticException: " + e.getMessage());
+	        }
+	    }
+	}
+
+//finally
+
+package nov21;
+
+public class Finally {
+	
+	    public static void main(String[] args) {
+
+	        try {
+	            int a = 10;
+	            int b = 0;
+	            int c = a / b;   
+	            System.out.println(c);
+	        }
+	        catch (ArithmeticException e) {
+	            System.out.println("Error: Division by zero!");
+	        }
+	        finally {
+	            System.out.println("Finally block executed.");
+	        }
+
+	        System.out.println("Program continues...");
+	    }
+	}
+
+//calculator
+
+package nov21;
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
+
+        System.out.println("Choose operation: +  -  *  / ");
+        char op = sc.next().charAt(0);
+
+        double result = 0;
+
+        switch (op) {
+            case '+':
+                result = num1 + num2;
+                break;
+
+            case '-':
+                result = num1 - num2;
+                break;
+
+            case '*':
+                result = num1 * num2;
+                break;
+
+            case '/':
+                if (num2 != 0)
+                    result = num1 / num2;
+                else
+                    System.out.println("Error: Division by zero!");
+                break;
+
+            default:
+                System.out.println("Invalid operation!");
+                return;
+        }
+
+        System.out.println("Result = " + result);
+    }
+}
